@@ -87,17 +87,55 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OW-Jo-JlE">
+                                <rect key="frame" x="107" y="317" width="386" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="QrA-TZ-zQ2"/>
+                                    <constraint firstAttribute="width" constant="386" id="pkD-o4-3GN"/>
+                                    <constraint firstAttribute="height" constant="21" id="zds-1O-M3X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QrA-TZ-zQ2"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uq-8Q-5iC">
+                                <rect key="frame" x="130" y="346" width="340" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="Kqf-tg-pIn"/>
+                                    <constraint firstAttribute="width" constant="197" id="WJT-Yl-Lbd"/>
+                                    <constraint firstAttribute="height" constant="21" id="lP5-Yg-FCf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WJT-Yl-Lbd"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Lei-5M-9Gs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="20" symbolic="YES" id="62x-JV-TTJ"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerX" secondItem="1OW-Jo-JlE" secondAttribute="centerX" id="Eu7-HB-nBB"/>
                             <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerY" secondItem="MMQ-IT-qOo" secondAttribute="centerY" id="JzS-HC-Rnl"/>
+                            <constraint firstItem="9uq-8Q-5iC" firstAttribute="top" secondItem="1OW-Jo-JlE" secondAttribute="bottom" constant="8" id="Rbk-uH-vle"/>
+                            <constraint firstItem="1OW-Jo-JlE" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" constant="8" id="SNw-8G-JHb"/>
+                            <constraint firstItem="1OW-Jo-JlE" firstAttribute="centerX" secondItem="9uq-8Q-5iC" secondAttribute="centerX" id="egw-xF-Nwh"/>
                             <constraint firstAttribute="trailing" secondItem="Lei-5M-9Gs" secondAttribute="trailing" constant="20" symbolic="YES" id="pXB-RP-Zz6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
+                        <outlet property="detailDateLabel" destination="9uq-8Q-5iC" id="Sx3-ID-YbU"/>
                         <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
+                        <outlet property="detailLocationLabel" destination="1OW-Jo-JlE" id="0HH-pN-dgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
