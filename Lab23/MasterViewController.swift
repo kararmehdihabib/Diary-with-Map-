@@ -10,7 +10,6 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
-    var objects = [AnyObject]()
     var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
     var diary: Diary!
 
@@ -36,9 +35,10 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        //objects.insert(NSDate(), atIndex: 0)
+        //let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        //self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        println("adding new item, should segue to new view")
     }
 
     // MARK: - Segues
@@ -46,8 +46,8 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as NSDate
-            (segue.destinationViewController as DetailViewController).detailItem = object
+                let entry = self.diary.getSorted()[indexPath.section].entries[indexPath.row] as DiaryEntry
+                (segue.destinationViewController as DetailViewController).detailItem = entry
             }
         }
     }
@@ -55,30 +55,42 @@ class MasterViewController: UITableViewController {
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return self.diary.entries.count // Amount of days == sections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        // Return amount of entries on specific day (section)
+        var sortedDiary: [DiaryDay] = self.diary.getSorted()
+        return sortedDiary[section].entries.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("DiaryEntryCell", forIndexPath: indexPath) as UITableViewCell
 
-        let object = objects[indexPath.row] as NSDate
-        cell.textLabel!.text = object.description
+        let entry = self.diary.getSorted()[indexPath.section].entries[indexPath.row] as DiaryEntry
+        cell.textLabel?.text = entry.text
+        cell.detailTextLabel?.text = entry.locationString
         return cell
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
+            // Remove the deleted item from the model
+            self.diary.getSorted()[indexPath.section].entries.removeAtIndex(indexPath.row)
+            
+            // Remove the deleted item from the UITableView
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            // Remove sections that no longer have any entries
+            if self.diary.getSorted()[indexPath.section].entries.count == 0 {
+                self.diary.entries.removeAtIndex(indexPath.section)
+                tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
+            }
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
