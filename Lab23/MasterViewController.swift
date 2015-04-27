@@ -11,6 +11,8 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var objects = [AnyObject]()
+    var appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    var diary: Diary!
 
 
     override func awakeFromNib() {
@@ -24,6 +26,8 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         self.navigationItem.rightBarButtonItem = addButton
+        
+        self.diary = self.appDelegate.diary
     }
 
     override func didReceiveMemoryWarning() {
