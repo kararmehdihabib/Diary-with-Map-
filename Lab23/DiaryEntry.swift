@@ -11,12 +11,13 @@ import MapKit
 
 class DiaryEntry: NSObject, Comparable, NSCoding {
     var date: NSDate
-    var dateString: String
+    var dateString: String // For quicker comparisons, no need to always reformat
     var text: String
     var location: CLLocation
     var locationString: String
     let DATE_FORMAT = "dd.MM.YYYY"
     
+    /* NSCoding */
     required init(coder aDecoder: NSCoder) {
         self.date = aDecoder.decodeObjectForKey("date") as NSDate
         self.dateString = aDecoder.decodeObjectForKey("dateString") as String
@@ -36,6 +37,7 @@ class DiaryEntry: NSObject, Comparable, NSCoding {
         self.dateString = f.stringFromDate(self.date)
     }
     
+    /* NSCoding */
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.date, forKey: "date")
         aCoder.encodeObject(self.dateString, forKey: "dateString")
@@ -45,6 +47,7 @@ class DiaryEntry: NSObject, Comparable, NSCoding {
     }
 }
 
+/* Comparable */
 // Here we can also compare with times
 func <(lhs: DiaryEntry, rhs: DiaryEntry) -> Bool {
     return lhs.date.compare(rhs.date) == NSComparisonResult.OrderedAscending
