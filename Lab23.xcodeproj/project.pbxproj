@@ -16,6 +16,7 @@
 		C0BB6F071AEECF7700DD471F /* Lab23Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F061AEECF7700DD471F /* Lab23Tests.swift */; };
 		C0BB6F111AEECFB800DD471F /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F101AEECFB800DD471F /* Diary.swift */; };
 		C0BB6F131AEED07200DD471F /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F121AEED07200DD471F /* DiaryEntry.swift */; };
+		C0BB6F151AEED2A600DD471F /* DiaryDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F141AEED2A600DD471F /* DiaryDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		C0BB6F061AEECF7700DD471F /* Lab23Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab23Tests.swift; sourceTree = "<group>"; };
 		C0BB6F101AEECFB800DD471F /* Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		C0BB6F121AEED07200DD471F /* DiaryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		C0BB6F141AEED2A600DD471F /* DiaryDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				C0BB6EEC1AEECF7700DD471F /* Supporting Files */,
 				C0BB6F101AEECFB800DD471F /* Diary.swift */,
 				C0BB6F121AEED07200DD471F /* DiaryEntry.swift */,
+				C0BB6F141AEED2A600DD471F /* DiaryDay.swift */,
 			);
 			path = Lab23;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				C0BB6EF31AEECF7700DD471F /* DetailViewController.swift in Sources */,
 				C0BB6F131AEED07200DD471F /* DiaryEntry.swift in Sources */,
+				C0BB6F151AEED2A600DD471F /* DiaryDay.swift in Sources */,
 				C0BB6EF11AEECF7700DD471F /* MasterViewController.swift in Sources */,
 				C0BB6EEF1AEECF7700DD471F /* AppDelegate.swift in Sources */,
 				C0BB6F111AEECFB800DD471F /* Diary.swift in Sources */,
