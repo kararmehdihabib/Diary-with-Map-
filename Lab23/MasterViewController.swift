@@ -57,42 +57,45 @@ class MasterViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.diary.entries.count // Amount of days == sections
     }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.diary.entries[section].dateString
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return amount of entries on specific day (section)
-        var sortedDiary: [DiaryDay] = self.diary.getSorted()
-        return sortedDiary[section].entries.count
+        return self.diary.entries[section].entries.count // Amount of entries (rows) in one day (section)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Queue a cell
         let cell = tableView.dequeueReusableCellWithIdentifier("DiaryEntryCell", forIndexPath: indexPath) as UITableViewCell
 
-        let entry = self.diary.getSorted()[indexPath.section].entries[indexPath.row] as DiaryEntry
-        cell.textLabel?.text = entry.text
-        cell.detailTextLabel?.text = entry.locationString
+        // Fill it with entry-data
+        let entry = self.diary.entries[indexPath.section].entries[indexPath.row] as DiaryEntry
+        cell.textLabel?.text = entry.text // Actual text entry
+        cell.detailTextLabel?.text = entry.locationString // Location of the entry
         return cell
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return false
+        return true
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // Only manage deletion case
         if editingStyle == .Delete {
             // Remove the deleted item from the model
-            self.diary.getSorted()[indexPath.section].entries.removeAtIndex(indexPath.row)
+            self.diary.entries[indexPath.section].entries.removeAtIndex(indexPath.row)
             
             // Remove the deleted item from the UITableView
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
             // Remove sections that no longer have any entries
-            if self.diary.getSorted()[indexPath.section].entries.count == 0 {
+            if self.diary.entries[indexPath.section].entries.count == 0 {
                 self.diary.entries.removeAtIndex(indexPath.section)
                 tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: .Fade)
             }
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
 

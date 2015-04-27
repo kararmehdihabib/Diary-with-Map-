@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.diary = aDiary
             println("diary found and loaded")
         }
+        
+        self.diary.addEntry(NSDate(), text: "test1", location: CLLocation(), locationString: "testlocation")
+        self.diary.addEntry(NSDate(), text: "test2", location: CLLocation(), locationString: "testlocation")
         
         return true
     }

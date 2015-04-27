@@ -52,6 +52,8 @@ class Diary: NSObject, NSCoding {
                 // Generate a new entry and a new DiaryDay for it
                 self.entries.append(DiaryDay(date: date, firstEntry: DiaryEntry(date: date, text: text, location: location, locationString: locationString)))
             }
+            
+            self.entries = self.getSorted()
         }
     }
     

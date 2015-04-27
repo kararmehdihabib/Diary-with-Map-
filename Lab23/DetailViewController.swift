@@ -11,9 +11,11 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var detailDateLabel: UILabel!
+    @IBOutlet weak var detailLocationLabel: UILabel!
 
 
-    var detailItem: AnyObject? {
+    var detailItem: DiaryEntry? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,9 +24,16 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+        if let detail: DiaryEntry = self.detailItem {
+            // Safely unwrap labels before assigning values
+            if let textLabel = self.detailDescriptionLabel {
+                textLabel.text = detail.text
+            }
+            if let locLabel = self.detailLocationLabel {
+                locLabel.text = detail.locationString
+            }
+            if let dateLabel = self.detailDateLabel {
+                dateLabel.text = detail.dateString
             }
         }
     }
