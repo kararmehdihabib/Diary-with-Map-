@@ -48,7 +48,10 @@ class DiaryDay: NSObject, Comparable, NSCoding {
         aCoder.encodeObject(self.dateString, forKey: "dateString")
         aCoder.encodeObject(self.entries, forKey: "entries")
     }
-
+    
+    func getSorted() -> [DiaryEntry]{
+        return sorted(self.entries, <)
+    }
 }
 
 /* Comparable */
