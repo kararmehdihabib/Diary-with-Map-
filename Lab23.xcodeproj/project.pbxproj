@@ -17,6 +17,8 @@
 		C0BB6F111AEECFB800DD471F /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F101AEECFB800DD471F /* Diary.swift */; };
 		C0BB6F131AEED07200DD471F /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F121AEED07200DD471F /* DiaryEntry.swift */; };
 		C0BB6F151AEED2A600DD471F /* DiaryDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F141AEED2A600DD471F /* DiaryDay.swift */; };
+		C0BB6F171AEEEA9400DD471F /* AddEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BB6F161AEEEA9400DD471F /* AddEntryViewController.swift */; };
+		C0F297B71AF016500095D07A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F297B61AF016500095D07A /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		C0BB6F101AEECFB800DD471F /* Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		C0BB6F121AEED07200DD471F /* DiaryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		C0BB6F141AEED2A600DD471F /* DiaryDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDay.swift; sourceTree = "<group>"; };
+		C0BB6F161AEEEA9400DD471F /* AddEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryViewController.swift; sourceTree = "<group>"; };
+		C0F297B61AF016500095D07A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 				C0BB6EEE1AEECF7700DD471F /* AppDelegate.swift */,
 				C0BB6EF01AEECF7700DD471F /* MasterViewController.swift */,
 				C0BB6EF21AEECF7700DD471F /* DetailViewController.swift */,
+				C0BB6F161AEEEA9400DD471F /* AddEntryViewController.swift */,
+				C0F297B61AF016500095D07A /* MapViewController.swift */,
 				C0BB6EF41AEECF7700DD471F /* Main.storyboard */,
 				C0BB6EF71AEECF7700DD471F /* Images.xcassets */,
 				C0BB6EF91AEECF7700DD471F /* LaunchScreen.xib */,
@@ -227,9 +233,11 @@
 				C0BB6EF31AEECF7700DD471F /* DetailViewController.swift in Sources */,
 				C0BB6F131AEED07200DD471F /* DiaryEntry.swift in Sources */,
 				C0BB6F151AEED2A600DD471F /* DiaryDay.swift in Sources */,
+				C0BB6F171AEEEA9400DD471F /* AddEntryViewController.swift in Sources */,
 				C0BB6EF11AEECF7700DD471F /* MasterViewController.swift in Sources */,
 				C0BB6EEF1AEECF7700DD471F /* AppDelegate.swift in Sources */,
 				C0BB6F111AEECFB800DD471F /* Diary.swift in Sources */,
+				C0F297B71AF016500095D07A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +429,7 @@
 				C0BB6F0C1AEECF7700DD471F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0BB6F0D1AEECF7700DD471F /* Build configuration list for PBXNativeTarget "Lab23Tests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +438,7 @@
 				C0BB6F0F1AEECF7700DD471F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
