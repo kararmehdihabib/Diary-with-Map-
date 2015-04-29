@@ -30,7 +30,7 @@ class Diary: NSObject, NSCoding {
         aCoder.encodeObject(self.entries, forKey: "entries")
     }
     
-    func addEntry(date: NSDate, text: String, location: CLLocation, locationString: String) {
+    func addEntry(date: NSDate, text: String, location: CLLocation, locationString: String, image: UIImage) {
         // An entry must have some content
         if !text.isEmpty {
             var existingDateIndex = -1
@@ -47,14 +47,40 @@ class Diary: NSObject, NSCoding {
             // Was a matching DiaryDay found
             if existingDateIndex >= 0 {
                 // Generate a new entry and append it into the correct DiaryDay
-                self.entries[existingDateIndex].entries.append(DiaryEntry(date: date, text: text, location: location, locationString: locationString))
+                self.entries[existingDateIndex].entries.append(DiaryEntry(date: date, text: text, location: location, locationString: locationString, image: image))
             } else {
                 // Generate a new entry and a new DiaryDay for it
-                self.entries.append(DiaryDay(date: date, firstEntry: DiaryEntry(date: date, text: text, location: location, locationString: locationString)))
+                self.entries.append(DiaryDay(date: date, firstEntry: DiaryEntry(date: date, text: text, location: location, locationString: locationString, image: image)))
             }
             
             self.entries = self.getSorted()
         }
+    }
+    
+    func addEntry(newEntry: DiaryEntry) {
+        
+        if !newEntry.text.isEmpty {
+            var existingDateIndex = -1
+            
+            for (index, day) in enumerate(self.entries) {
+                if day.dateString == newEntry.dateString {
+                    existingDateIndex = index
+                    break
+                }
+            }
+            
+            // Was a matching DiaryDay found
+            if existingDateIndex >= 0 {
+                // Generate a new entry and append it into the correct DiaryDay
+                self.entries[existingDateIndex].entries.append(newEntry)
+            } else {
+                // Generate a new entry and a new DiaryDay for it
+                self.entries.append(DiaryDay(date: newEntry.date, firstEntry: newEntry))
+            }
+            
+            self.entries = self.getSorted()
+        }
+
     }
     
     // Get diary entries sorted by time, grouped by DiaryDay

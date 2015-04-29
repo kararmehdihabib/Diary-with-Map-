@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var detailDateLabel: UILabel!
     @IBOutlet weak var detailLocationLabel: UILabel!
+    @IBOutlet weak var detailImageView: UIImageView!
 
 
     var detailItem: DiaryEntry? {
@@ -34,6 +35,9 @@ class DetailViewController: UIViewController {
             }
             if let dateLabel = self.detailDateLabel {
                 dateLabel.text = detail.dateString
+            }
+            if let img = self.detailImageView {
+                img.image = detail.image
             }
         }
     }

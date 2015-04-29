@@ -15,6 +15,8 @@ class DiaryEntry: NSObject, Comparable, NSCoding {
     var text: String
     var location: CLLocation
     var locationString: String
+    var image: UIImage
+    
     let DATE_FORMAT = "dd.MM.YYYY"
     
     /* NSCoding */
@@ -24,13 +26,15 @@ class DiaryEntry: NSObject, Comparable, NSCoding {
         self.text = aDecoder.decodeObjectForKey("text") as String
         self.location = aDecoder.decodeObjectForKey("location") as CLLocation
         self.locationString = aDecoder.decodeObjectForKey("locationString") as String
+        self.image = aDecoder.decodeObjectForKey("image") as UIImage
     }
     
-    init(date: NSDate, text: String, location: CLLocation, locationString: String) {
+    init(date: NSDate, text: String, location: CLLocation, locationString: String, image: UIImage) {
         self.date = date
         self.text = text
         self.location = location
         self.locationString = locationString
+        self.image = image
         
         var f = NSDateFormatter()
         f.dateFormat = DATE_FORMAT
@@ -44,6 +48,7 @@ class DiaryEntry: NSObject, Comparable, NSCoding {
         aCoder.encodeObject(self.text, forKey: "text")
         aCoder.encodeObject(self.location, forKey: "location")
         aCoder.encodeObject(self.locationString, forKey: "locationString")
+        aCoder.encodeObject(self.image, forKey: "image")
     }
 }
 

@@ -27,9 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             println("diary found and loaded")
         }
         
-        self.diary.addEntry(NSDate(), text: "test1", location: CLLocation(), locationString: "testlocation")
-        self.diary.addEntry(NSDate(), text: "test2", location: CLLocation(), locationString: "testlocation")
-        
         return true
     }
 

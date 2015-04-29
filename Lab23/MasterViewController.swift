@@ -35,10 +35,7 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        //objects.insert(NSDate(), atIndex: 0)
-        //let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        //self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        println("adding new item, should segue to new view")
+        performSegueWithIdentifier("addDiaryEntry", sender: sender)
     }
 
     // MARK: - Segues
@@ -49,6 +46,8 @@ class MasterViewController: UITableViewController {
                 let entry = self.diary.getSorted()[indexPath.section].entries[indexPath.row] as DiaryEntry
                 (segue.destinationViewController as DetailViewController).detailItem = entry
             }
+        } else if segue.identifier == "addDiaryEntry" {
+            // Do something related to adding a diary entry
         }
     }
 
@@ -74,6 +73,7 @@ class MasterViewController: UITableViewController {
         let entry = self.diary.entries[indexPath.section].entries[indexPath.row] as DiaryEntry
         cell.textLabel?.text = entry.text // Actual text entry
         cell.detailTextLabel?.text = entry.locationString // Location of the entry
+        cell.imageView?.image = entry.image
         return cell
     }
 
@@ -98,7 +98,14 @@ class MasterViewController: UITableViewController {
             }
         }
     }
-
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
+        var source: AddEntryViewController = segue.sourceViewController as AddEntryViewController
+        if let item = source.newEntry {
+            self.diary.addEntry(item)
+            self.tableView.reloadData()
+        }
+    }
 
 }
 
