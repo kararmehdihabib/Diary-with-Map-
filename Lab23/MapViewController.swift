@@ -2,8 +2,8 @@
 //  MapViewController.swift
 //  Lab18
 //
-//  Created by mikko on 20/04/15.
-//  Copyright (c) 2015 Mikko Piuhola. All rights reserved.
+//  Created by karar on 20/04/15.
+//  Copyright (c) 2015 karar. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  Lab23Tests.swift
 //  Lab23Tests
 //
-//  Created by mikko on 27/04/15.
-//  Copyright (c) 2015 mikko. All rights reserved.
+//  Created by karar on 27/04/15.
+//  Copyright (c) 2015 karar. All rights reserved.
 //
 
 import UIKit
